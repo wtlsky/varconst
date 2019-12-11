@@ -1,0 +1,90 @@
+{
+  "name": "removebang",
+  "displayName": "removebang",
+  "description": "",
+  "version": "0.0.2",
+  "publisher": "wutianliang",
+  "engines": {
+    "node": "8",
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:removebang.translate"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": [
+      {
+        "title": "RemoveBang",
+        "properties": {
+          "removebang.engine": {
+            "type": "string",
+            "enum": [
+              "YOU_DAO"
+            ],
+            "enumDescriptions": [
+              "配置说明：有道翻译"
+            ],
+            "default": "YOU_DAO",
+            "description": "翻译引擎"
+          },
+          "removebang.mode": {
+            "type": "string",
+            "enum": [
+              "under_line",
+              "BigHump",
+              "smallHump",
+              "CONSTANT"
+            ],
+            "enumDescriptions": [
+              "配置说明：下划线",
+              "配置说明：大驼峰",
+              "配置说明：小驼峰",
+              "配置说明：常量"
+            ],
+            "default": "smallHump",
+            "description": "输出模式"
+          },
+          "removebang.copy": {
+            "type": "boolean",
+            "default": false,
+            "description": "将结果复制到剪贴板"
+          }
+        }
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "removebang.translate",
+        "key": "alt+t"
+      }
+    ],
+    "commands": [
+      {
+        "command": "removebang.translate",
+        "title": "Translate"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.0.0",
+    "eslint": "^6.6.0",
+    "glob": "^7.1.5",
+    "mocha": "^6.2.2",
+    "typescript": "^3.6.4",
+    "vscode-test": "^1.2.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "form-data": "^3.0.0"
+  }
+}
