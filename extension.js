@@ -7,6 +7,7 @@ const {
   covertToBigHump,
   covertToUnderLine,
   covertToConst,
+  covertToMiddleLine,
   translationFilter
 } = require('./lib/utils')
 
@@ -14,7 +15,8 @@ const ACTION_MODULES = {
   'S': covertToSmallHump,
   'B': covertToBigHump,
   'U': covertToUnderLine,
-  'C': covertToConst
+  'C': covertToConst,
+  'M': covertToMiddleLine
 }
 
 

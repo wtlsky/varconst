@@ -2,7 +2,7 @@
   "name": "removebang",
   "displayName": "removebang",
   "description": "",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "wutianliang",
   "engines": {
     "node": "8",
@@ -35,12 +35,14 @@
             "type": "string",
             "enum": [
               "under_line",
+              "middle-line",
               "BigHump",
               "smallHump",
               "CONSTANT"
             ],
             "enumDescriptions": [
               "配置说明：下划线",
+              "配置说明：中划线",
               "配置说明：大驼峰",
               "配置说明：小驼峰",
               "配置说明：常量"
