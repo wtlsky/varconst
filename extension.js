@@ -1,7 +1,5 @@
-const vscode = require("vscode")
-const {
-  youdaoQuery
-} = require('./lib/youdaoAPI')
+const vscode = require('vscode')
+const { youdaoQuery } = require('./lib/youdaoAPI')
 const {
   covertToSmallHump,
   covertToBigHump,
@@ -12,20 +10,19 @@ const {
 } = require('./lib/utils')
 
 const ACTION_MODULES = {
-  'S': covertToSmallHump,
-  'B': covertToBigHump,
-  'U': covertToUnderLine,
-  'C': covertToConst,
-  'M': covertToMiddleLine
+  S: covertToSmallHump,
+  B: covertToBigHump,
+  U: covertToUnderLine,
+  C: covertToConst,
+  M: covertToMiddleLine
 }
-
 
 /**
  * @param {vscode.ExtensionContext} context
  */
-function activate(context) {
+function activate (context) {
   let disposable = vscode.commands.registerCommand(
-    "removebang.translate",
+    'removebang.translate',
     async function () {
       // 载入配置
       const EXT_CONF = vscode.workspace.getConfiguration().get('removebang')
@@ -49,7 +46,6 @@ function activate(context) {
       } else {
         action = EXT_CONF.mode[0].toUpperCase()
       }
-
 
       // 请求翻译接口
       let res = await youdaoQuery(inputStr)
@@ -79,8 +75,6 @@ function activate(context) {
         await vscode.env.clipboard.writeText(choosed.label)
       }
 
-
-
       // 将结果写入编辑器
       let editor = vscode.window.activeTextEditor
       if (editor && choosed) {
@@ -88,11 +82,10 @@ function activate(context) {
           editBuilder.insert(editor.selection.anchor, choosed.label)
         })
       }
-
     }
-  );
+  )
 
-  context.subscriptions.push(disposable);
+  context.subscriptions.push(disposable)
 }
 exports.activate = activate
 
